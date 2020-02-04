@@ -1,0 +1,13 @@
+{
+    "name": "docker_curse_app",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "author": "Enrique <enrique@ortuno.net>",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1"
+    }
+  }

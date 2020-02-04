@@ -1,0 +1,20 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:latest
+    volumes:
+      - "/var/tkn/mongodb:/data/db"
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis:latest
+    ports:
+        - "6379:6379"
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - "/var/tkn/postgres-prod:/var/lib/postgresql/data"

@@ -1,0 +1,18 @@
+{
+  "name": "06",
+  "version": "1.0.0",
+  "description": "Demo 6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "Enrique",
+  "license": "MIT",
+  "dependencies": {
+    "number-formatter": "^1.2.0"
+  }
+}

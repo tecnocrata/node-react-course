@@ -1,0 +1,9 @@
+node_modules
+public
+data
+.tmp
+.sass-cache
+.idea
+*.sqlite
+dist
+npm-debug.log

@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+	h1.
+		Flight ID #{flight.number}
+	form(action='/' + flight.number + '/update',method='post',name='updateflight',enctype='application/x-www-form-urlencoded')
+		p Number:
+			input#inputNumber(type="number", placeholder="ex. 123456", value= flight.number , name="number")
+		p Origin: 
+			input#inputOrigin(type="text", placeholder="ex. SLC", value= flight.origin, name="origin")
+		p Destination:
+			input#inputDestination(type="text", placeholder="ex. CBBA", value= flight.destination, name="destination")
+		p Departs: 
+			input#inputDeparts(type="text", placeholder="ex. 12:00PM", value= flight.departs, name="departs")
+		p Arrives: 
+			input#inputArrives(type="text", placeholder="ex. 18:00PM", value= flight.arrives, name="arrives")
+		p
+			button#btnSubmit(type='submit').
+				Update

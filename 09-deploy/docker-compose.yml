@@ -1,0 +1,10 @@
+version: '2'
+services:
+  myapisite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "9080:9080"
+    network_mode: "bridge"

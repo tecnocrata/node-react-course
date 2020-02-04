@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+    table
+
+        thead
+          tr 
+            th number
+            th origin
+            th destination
+            th departs
+            th arrives
+            th Actions    
+        tbody
+    
+         each f, i in flights
+            tr
+                td=f.number
+                td=f.origin
+                td=f.destination
+                td=f.departs
+                td=f.arrives
+                td
+                    form(action='/' + f.number +'/edit',method='post',enctype='application/x-www-form-urlencoded')
+                         input(type='hidden',value='DELETE',name='_method')
+                         button(type='submit'). 
+                          Delete
+                    a(href='/' + f.number + '/edit') Edit
+                    br
+                    a(href='/' + f.number) Show
+
+    p  
+      a(href='/new' ) Add a NEW record                
+    p Back to 
+  a(href='../' ) Index

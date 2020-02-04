@@ -1,0 +1,17 @@
+<h1>I’m going to count to
+    <%= counter %>
+</h1>
+
+<p>
+    <%
+    for(var i = 1 ; i <= counter ; i++) {
+    %>
+
+        <%= i %>...
+
+            <% } %>
+</p>
+
+<p>While I’m here, I’m going to take a name at random that’s been sent to me:
+    <%= names[Math.round(Math.random() * (names.length - 1))] %>
+</p>

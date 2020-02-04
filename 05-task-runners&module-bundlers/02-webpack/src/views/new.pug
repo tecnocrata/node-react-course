@@ -1,0 +1,17 @@
+extends layout.pug
+block content
+	h1.
+		#{title}
+	form#formAddFlight(name="addflight",method="post",action="/")
+		p Number:
+			input#inputNumber(type="number", placeholder="ex. 123456", name="number")
+		p Origin: 
+			input#inputOrigin(type="text", placeholder="ex. SLC", name="origin")
+		p Destination:
+			input#inputDestination(type="text", placeholder="ex. CBBA", name="destination")
+		p Departs: 
+			input#inputDeparts(type="text", placeholder="ex. 12:00PM", name="departs")
+		p Arrives: 
+			input#inputArrives(type="text", placeholder="ex. 18:00PM", name="arrives")
+		p
+			button#btnSubmit(type="submit") submit
