@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "useBuiltIns": true
+      }
+    ]
+  ] //await and async only works with this combination
+  //"presets": ["node6"] //await-async doesn't work
+  //"presets": ["node6", "stage-3"] //await and async only works with this combination
+  //"presets": ["es2015", "stage-3"]
+  //"presets": ["es2016"] //await-async doesn't work
+  //"presets": ["es2016", "stage-3"] //another preset async-await work with
+  //"presets": ["es2020"] //another preset async-await work with
+}
