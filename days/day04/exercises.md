@@ -1,14 +1,14 @@
 ## Exercises Day 4
 
-### Complete and Show all previous exercises
+### Create a callback that passes a parameter
 
-###	Move all previous exercises to nodejs console programs
+### Move all previous exercises to nodejs console programs
 
-* Fibbonaci
+- Fibbonaci
 
-* Simple calculator
+- Simple calculator
 
-* Complex Calculator
+- Complex Calculator
 
 ## Project Day 3
 

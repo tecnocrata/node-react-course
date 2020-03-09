@@ -1,3 +1,4 @@
+// 'this' meaning
 function a() {
   console.log(this);
 
