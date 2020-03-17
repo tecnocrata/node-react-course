@@ -20,34 +20,34 @@ exports.getInfo = function(){
     }
 }
 */
-module.exports = function (info) {
-    let values = {
-        number: 0,
-        origin: null,
-        destination: null
+module.exports = function(info) {
+  let values = {
+    number: 0,
+    origin: null,
+    destination: null
+  };
+  if (info) {
+    for (let property in values) {
+      if (values[property]) {
+        values[property] = info[property];
+      }
     }
-    if (info) {
-        for (let property in values) {
-            if (values[property]) {
-                values[property] = info[property];
-            }
-        }
-    }
+  }
 
-    let functions = {
-        setNumber: function (num) {
-            values.number = num;
-        },
-        setOrigin: function (o) {
-            values.origin = o;
-        },
-        setDestination: function (d) {
-            values.destination = d;
-        },
-        getInfo: function () {
-            return values;
-        }
+  let functions = {
+    setNumber: function(num) {
+      values.number = num;
+    },
+    setOrigin: function(o) {
+      values.origin = o;
+    },
+    setDestination: function(d) {
+      values.destination = d;
+    },
+    getInfo: function() {
+      return values;
     }
+  };
 
-    return functions;
-}
+  return functions;
+};

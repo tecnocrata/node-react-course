@@ -27,7 +27,7 @@ let Flight = function() {
   this.getInfo = function() {
     return this.values;
   };
-  console.log(this);
+  //console.log(this);
 };
 
 module.exports = function(info) {
