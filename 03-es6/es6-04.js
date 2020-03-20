@@ -14,6 +14,7 @@ var employee = {
 
 // !!!!!! DON'T DO EVER !!!!!!!
 employee.__proto__ = person;
+//console.log(employee.prototype);
 
 // Only listin employee's properties
 for (const prop in employee) {
