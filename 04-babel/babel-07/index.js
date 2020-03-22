@@ -1,16 +1,16 @@
 //Read-only property
 class Rectangle {
-    constructor() {
-        this._width = 4;
-    }
+  constructor() {
+    this._width = 4;
+  }
 
-    get readonly() {
-        return this._width;
-    }
+  get coronavirus() {
+    return this._width;
+  }
 }
 
 let r = new Rectangle();
 
-console.log(r.readonly);
-r.readonly = 100;
-console.log(r.readonly);
+console.log(r.coronavirus);
+r.coronavirus = 100;
+console.log(r.coronavirus);
