@@ -34,18 +34,18 @@ export const login = (req, res) => {
           res.status(401).json({
             message: "Authentication failed, No password coincidence"
           });
-        } else {
-          res.json({
-            token: jwt.sign(
-              {
-                email: user.email,
-                username: user.username,
-                _id: user.id
-              },
-              "Restful API"
-            )
-          });
         }
+      } else {
+        res.json({
+          token: jwt.sign(
+            {
+              email: user.email,
+              username: user.username,
+              _id: user.id
+            },
+            "Restful API"
+          )
+        });
       }
     }
   );
