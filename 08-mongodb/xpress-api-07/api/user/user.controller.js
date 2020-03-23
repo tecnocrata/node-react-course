@@ -1,11 +1,11 @@
 let mongoose = require("mongoose");
 let bcrypt = require("bcrypt");
-let jwt = require("jwt");
+let jwt = require("jsonwebtoken");
 let User = require("../../models/user");
 
 //const User = mongoose.model('User')
 
-export const register = (req, res) => {
+const register = (req, res) => {
   const newUser = new User(req.body);
   newUser.hashPassword = bcrypt.hashSync(req.body.password, 10);
   newUser.save((err, user) => {
@@ -18,14 +18,18 @@ export const register = (req, res) => {
   });
 };
 
-export const login = (req, res) => {
+const login = (req, res) => {
+  console.log("Login try... ", req);
   User.findOne(
     {
-      emal: req.body.email
+      email: req.body.email
     },
     (err, user) => {
       if (err) throw err;
+      console.log("User value ... ", user[0]);
       if (!user) {
+        console.log("Email verified ", req.body.email);
+
         res.status(401).json({
           message: "Authentication failed, No credentials coincidence"
         });
@@ -34,25 +38,26 @@ export const login = (req, res) => {
           res.status(401).json({
             message: "Authentication failed, No password coincidence"
           });
+        } else {
+          res.json({
+            token: jwt.sign(
+              {
+                email: user.email,
+                username: user.username,
+                _id: user.id
+              },
+              "Restful API"
+            )
+          });
         }
-      } else {
-        res.json({
-          token: jwt.sign(
-            {
-              email: user.email,
-              username: user.username,
-              _id: user.id
-            },
-            "Restful API"
-          )
-        });
       }
     }
   );
 };
 
 //THIS IS a MIDDLEWARE
-export const loginRequired = (req, res, next) => {
+const loginRequired = (req, res, next) => {
+  //console.log(req);
   //  UNSECURE!!!!!
   if (req.user) {
     next();
@@ -61,4 +66,10 @@ export const loginRequired = (req, res, next) => {
       message: "Authentication failed, Unauthorized user"
     });
   }
+};
+
+module.exports = {
+  register,
+  loginRequired,
+  login
 };

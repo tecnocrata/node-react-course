@@ -22,6 +22,8 @@ let UserSchema = new Schema({
 });
 
 UserSchema.methods.comparePassword = (password, hashPassword) => {
+  console.log("Password ", password);
+  console.log("Hashed Password ", hashPassword);
   return bcrypt.compareSync(password, hashPassword);
 };
 

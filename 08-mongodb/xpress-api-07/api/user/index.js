@@ -6,6 +6,6 @@ let router = express.Router();
 // more routes /persons for our API will happen here
 // ----------------------------------------------------
 router.post("/register", userController.register); //We don't need secure this encpoint
-router.get("/login", userController.login);
+router.post("/login", userController.login); //We don't need secure this encpoint
 
 module.exports = router;
