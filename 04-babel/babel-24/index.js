@@ -20,30 +20,32 @@ function mycallback(data) {
 
 getText('https://github.com/tecnocrata/', mycallback); */
 
-const promiseAnathomy = function (...myparameters){
-    return new Promise((resolve, reject) => {
-        // do something asynchronous which eventually calls either:
-        //
-        //   resolve(someValue); // fulfilled
-        // or
-        //   reject("failure reason"); // rejected
-    });
-}
+const promiseAnathomy = function(...myparameters) {
+  return new Promise((resolve, reject) => {
+    // do something asynchronous which eventually calls either:
+    //
+    //   resolve(someValue); // fulfilled
+    // or
+    //   reject("failure reason"); // rejected
+  });
+};
 
 function getContent(url) {
-    return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", url);
-        xhr.onload = () => resolve(xhr.responseText);
-        xhr.onerror = () => reject(xhr.statusText);
-        xhr.send();
-    });
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = () => resolve(xhr.responseText);
+    xhr.onerror = () => reject(xhr.statusText);
+    xhr.send();
+  });
 }
 
-getContent('https://github.com/tecnocrata/')
-.then(data=>{
+getContent("https://github.com/tecnocrata/")
+  .then(data => {
     console.log(data);
-})
-.catch(e=>{
+  })
+  .catch(e => {
+    console.log("An error not expected.....");
     console.log(e);
-});
+  });
+console.log("Executed right now....!");
