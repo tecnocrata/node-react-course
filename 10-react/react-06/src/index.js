@@ -2,17 +2,11 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "./style.css";
 
-function Section(props) {
+function List(props) {
+  let items = props.names.map(item => <li>Hello {item}</li>);
   return (
     <div>
-      <h2>{props.name}</h2>
-      <p style={{ fontSize: "12px", lineHeight: "16px" }}>props.description</p>
-      <a
-        target="_blank"
-        href="https://www.imdb.com/title/tt0120737/?ref_=ttls_li_tt"
-      >
-        Visitar la pelicula
-      </a>
+      <ul>{items}</ul>
     </div>
   );
 }
@@ -28,8 +22,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>Start editing to see some magic happen :)</p>
-        <Section />
+        <p>List :</p>
+        <List names={["Enrique", "Sam"]} />
       </div>
     );
   }
