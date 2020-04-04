@@ -1,0 +1,6 @@
+{
+  "name": "memory",
+  "connector": "memory",
+  "localStorage": "lb4-mem",
+  "file": ""
+}
