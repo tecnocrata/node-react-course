@@ -5,32 +5,32 @@ module.exports = function(grunt) {
       compile: {
         options: {
           sourceMap: true,
-          presets: ["env"],
+          presets: ["env"]
         },
-        files: [{
-			expand: true,
-			//cwd: '<%= yeoman.server %>',
-			src: [
-			  'src/**/*.js'
-			],
-			dest: 'dist'
-		  }],
-      },
+        files: [
+          {
+            expand: true,
+            //cwd: '<%= yeoman.server %>',
+            src: ["src/**/*.js"],
+            dest: "dist"
+          }
+        ]
+      }
     },
     nodeunit: {
-      tasks: ["test/test.js"],
+      tasks: ["test/test.js"]
     },
     clean: {
-      test: ["dist/**"],
-	},
-	copy: {
-		main: {
-			expand: true,
-			//cwd: '<%= yeoman.client %>',
-			dest: 'dist/',
-			src: ['src/**']
-		  }
-	}
+      test: ["dist/**"]
+    },
+    copy: {
+      main: {
+        expand: true,
+        //cwd: '<%= yeoman.client %>',
+        dest: "dist/",
+        src: ["src/**"]
+      }
+    }
   });
 
   //grunt.loadTasks("tasks");

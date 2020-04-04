@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "start-dev": "nodemon --exec npm start --ext pug,sass",
-    "build": "babel src --out-dir dist --source-maps inline --copy-files"
+    "build": "grunt build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
