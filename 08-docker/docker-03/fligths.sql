@@ -17,4 +17,4 @@ WITH (
 TABLESPACE pg_default;
 
 ALTER TABLE public.flights
-    OWNER to postgres;s
+    OWNER to postgres;
