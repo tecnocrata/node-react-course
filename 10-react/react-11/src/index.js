@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
 import "./style.css";
@@ -24,12 +24,15 @@ import "./style.css";
 // }
 
 let Score = (props) => {
-  let score = props.score;
+  let [score, setScore] = useState(props.score);
   function increaseScore(e) {
     e.preventDefault();
-
-    score++;
-    console.log("Increase score! ", score);
+    //score++;
+    setScore(score + 1);
+    console.log("Increase score!. ", score);
+    // let newState = score + 1;
+    // setScore(newState);
+    // console.log("Increase score!. ", newState);
   }
   return (
     <div>

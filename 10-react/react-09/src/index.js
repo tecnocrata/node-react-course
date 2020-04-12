@@ -24,17 +24,15 @@ import "./style.css";
 // }
 
 let Score = (props) => {
-  let score = props.score;
   function increaseScore(e) {
     e.preventDefault();
-
-    score++;
-    console.log("Increase score! ", score);
+    console.log("Increase!");
+    props.score++;
   }
   return (
     <div>
       <p>
-        Score is {score} for the {props.name}
+        Score is {props.score} for the {props.name}
       </p>
       <button onClick={increaseScore}>+</button>
       <button>-</button>
