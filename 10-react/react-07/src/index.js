@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 import "./style.css";
 
 let List = (props) => {
+  let tooManyItems =
+    props.names.length > 3 ? "There are too many items in the list" : null;
   let items = props.names.map((item) => <li key={item}>Hello {item}</li>);
   return (
     <div>
+      {tooManyItems && <h2>{tooManyItems}</h2>}
       <ul>{items}</ul>
     </div>
   );
