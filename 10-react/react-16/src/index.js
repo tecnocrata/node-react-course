@@ -23,13 +23,23 @@ function App() {
   }
 
   function handlePlay(index, e) {
-    //let fields = currState.fields.concat();
-    //let fields = currState.fields;
+    // //let fields = currState.fields.concat();
+    // //let fields = currState.fields;
+    // let piece = currState["player" + currState.currentPlayer]; //x or o
+
+    // // fill in the current piece, and switch player
+    // currState.fields[index] = piece;
+    // currState.currentPlayer = currState.currentPlayer === 1 ? 2 : 1; // toggle between player  1 and 2
+
+    let fields = [...currState.fields];
     let piece = currState["player" + currState.currentPlayer]; //x or o
 
-    // fill in the current piece, and switch player
-    currState.fields[index] = piece;
-    currState.currentPlayer = currState.currentPlayer === 1 ? 2 : 1; // toggle between player  1 and 2
+    fields[index] = piece;
+    updateState({
+      ...currState, // Object.assign ({}, currState)
+      fields: fields,
+      currentPlayer: currState.currentPlayer === 1 ? 2 : 1, // toggle between player  1 and 2
+    });
 
     console.log(currState);
   }
