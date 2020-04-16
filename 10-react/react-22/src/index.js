@@ -8,37 +8,34 @@ let initialState = {
   email: "",
   subject: "",
   message: "",
+  msg: "",
+  errors: [],
+  hasLoaded: false,
 };
 
 function App() {
   let [state, setState] = useState(initialState);
 
-  let counter = useRef(1);
-
-  let nameField = useRef(null);
-
-  // It will run after every render
-  useEffect(() => {
-    if (state === initialState) {
-      // if (counter === 1) {
-      let savedState = JSON.parse(localStorage.getItem("formState"));
-      setState({
-        ...state,
-        ...savedState,
-      });
-    }
-
-    localStorage.setItem("formState", JSON.stringify(state));
-
-    // console.log("counter", counter);
-    counter.current++;
-  });
-
-  useEffect(() => {
-    nameField.current.focus();
-  }, []);
-
   console.log("render");
+
+  useEffect(fetchUserData, []);
+
+  function fetchUserData() {
+    fetch(
+      "https://n89i8xbcal.execute-api.us-west-2.amazonaws.com/prod/react-intro-forms"
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((jsonRes) => {
+        let savedName = jsonRes.name;
+        setTimeout(() => {
+          setState((prevState) => {
+            return { ...prevState, name: savedName, hasLoaded: true };
+          });
+        }, 1000);
+      });
+  }
 
   function handleFormChange(e) {
     let newValue = e.target.value;
@@ -46,17 +43,58 @@ function App() {
 
     setState({
       ...state,
-      [name]: newValue, //state indexed by name
+      [name]: newValue,
     });
   }
 
+  function handleFormSubmit() {
+    fetch(
+      "https://n89i8xbcal.execute-api.us-west-2.amazonaws.com/prod/react-intro-forms",
+      {
+        method: "post",
+        body: JSON.stringify(state),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((jsonRes) => {
+        console.log("jsonRes submit", jsonRes);
+
+        if (jsonRes.success) {
+          setState({ ...state, msg: jsonRes.msg });
+        } else {
+          setState({ ...state, errors: jsonRes.errors });
+        }
+      });
+  }
+
+  function handleFormReset() {
+    setState({ ...state, ...initialState });
+    fetchUserData();
+  }
+
+  if (!state.hasLoaded) return "Loading...";
+
+  if (state.msg)
+    return (
+      <>
+        <div className="msgContainer">{state.msg}</div>
+        <button onClick={handleFormReset}>Reset Form</button>
+      </>
+    );
+
+  let errs = state.errors.map((item) => {
+    return <div className="error">{item.msg}</div>;
+  });
+
   return (
     <>
+      {errs}
       <fieldset>
         <label>Your Name</label>
         <br />
         <input
-          ref={nameField}
           value={state.name}
           name="name"
           placeholder="Alex Trebeck"
@@ -96,7 +134,7 @@ function App() {
           cols="60"
         />
       </fieldset>
-      <button>Submit</button>
+      <button onClick={handleFormSubmit}>Submit</button>
     </>
   );
 }
