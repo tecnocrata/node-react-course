@@ -13,38 +13,30 @@ let initialState = {
 function App() {
   let [state, setState] = useState(initialState);
 
-  // Side effect!!!!
-  // It runs in every render!!!! modifying the DOM maybe
-  //localStorage.setItem("formState", JSON.stringify(state));
-
-  // It is used to keep track a counter thru all renders
   let counter = useRef(1);
 
-  // It will run after every render
-  // It will run after state changes because the render ocurrs after the state changes
-  // here you could include ajax calls, api calls, mutate the DOM directly
-  useEffect(() => {
-    //if we don't use this block the state is not retrieved
-    // if (state === initialState) {
-    //   // if (counter === 1) {
-    //   let savedState = JSON.parse(localStorage.getItem("formState"));
-    //   setState({
-    //     ...state,
-    //     ...savedState,
-    //   });
-    // }
+  let nameField = useRef(null);
 
-    // NOTE: be VERY careful updating state in an effect, because this can easily cause an infinite loop...
-    // setState({
-    //   ...savedState
-    //   // test: "prop"
-    // });
+  // It will run after every render
+  useEffect(() => {
+    if (state === initialState) {
+      // if (counter === 1) {
+      let savedState = JSON.parse(localStorage.getItem("formState"));
+      setState({
+        ...state,
+        ...savedState,
+      });
+    }
 
     localStorage.setItem("formState", JSON.stringify(state));
 
     // console.log("counter", counter);
     counter.current++;
   });
+
+  useEffect(() => {
+    nameField.current.focus();
+  }, []);
 
   console.log("render");
 
@@ -64,6 +56,7 @@ function App() {
         <label>Your Name</label>
         <br />
         <input
+          ref={nameField}
           value={state.name}
           name="name"
           placeholder="Alex Trebeck"
