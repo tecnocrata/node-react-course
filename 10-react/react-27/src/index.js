@@ -1,5 +1,6 @@
-import React, { useState, useReducer, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +9,8 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
+
+import { Nav } from "./components/nav";
 
 import "./style.css";
 
@@ -26,23 +29,21 @@ function App() {
   );
 }
 
-function Nav() {
-  return (
-    <>
-      <Link to="/">Home</Link> | <Link to="/about?myname=enrique">About</Link> |{" "}
-      <Link to="/contact/bolivia">Contact</Link> |{" "}
-      <Link to="/arstrast">arstarst</Link>
-    </>
-  );
-}
+// function Nav() {
+//   return (
+//     <>
+//       <Link to="/">Home</Link> | <Link to="/about?name=jamis">About</Link> | <Link to="/contact/us">Contact</Link> | <Link to="/arstrast">arstarst</Link>
+//     </>
+//   );
+// }
 
 function Home() {
   return <p>Home Page Content</p>;
 }
 
 function About() {
-  var params = new URLSearchParams(useLocation().search); //hook
-  var name = params.get("myname");
+  var params = new URLSearchParams(useLocation().search);
+  var name = params.get("name");
   return <p>About Page content for {name}</p>;
 }
 
