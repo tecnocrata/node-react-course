@@ -1,5 +1,6 @@
-import React, { Component, useState, useReducer } from "react";
-import flightReducer from "../reducers/flightReducer";
+import React, { Component, useState, useReducer, useContext } from "react";
+//import flightReducer from "../reducers/flightReducer";
+import { FlightContext } from "../context/flightContext";
 
 let PostForm = () => {
   const emptyFlight = {
@@ -11,7 +12,8 @@ let PostForm = () => {
     editing: false,
   };
   const [flight, setFlight] = useState(emptyFlight);
-  const [flights, dispatch] = useReducer(flightReducer);
+  //const [flights, dispatch] = useReducer(flightReducer);
+  const { dispatch } = useContext(FlightContext);
   let handleSubmit = (e) => {
     e.preventDefault();
     // const number = this.number.value;

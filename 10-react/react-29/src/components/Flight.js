@@ -1,16 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+import { FlightContext } from "../context/flightContext";
 //import {connect} from 'react-redux';
 
 let Flight = (props) => {
+  const { dispatch } = useContext(FlightContext);
+
   return (
     <div>
-      <h2>{this.props.flight.number}</h2>
-      <p>{this.props.flight.origin}</p>
+      <h2>{props.flight.number}</h2>
+      <p>{props.flight.origin}</p>
       <button
         onClick={() =>
-          this.props.dispatch({
+          dispatch({
             type: "EDIT_FLIGHT",
-            number: this.props.flight.number,
+            number: props.flight.number,
           })
         }
       >
@@ -18,9 +21,9 @@ let Flight = (props) => {
       </button>
       <button
         onClick={() =>
-          this.props.dispatch({
+          dispatch({
             type: "DELETE_FLIGHT",
-            number: this.props.flight.number,
+            number: props.flight.number,
           })
         }
       >

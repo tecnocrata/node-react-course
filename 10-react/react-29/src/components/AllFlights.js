@@ -4,14 +4,17 @@ import Flight from "./Flight";
 import EditFlight from "./EditFlight";
 import { useReducer } from "react";
 import flightReducer from "../reducers/flightReducer";
+import { useContext } from "react";
+import { FlightContext } from "../context/flightContext";
 
 let AllFlights = (props) => {
-  const [flights, dispatch] = useReducer(flightReducer, []);
+  //const [flights, dispatch] = useReducer(flightReducer, []);
+  const { flights } = useContext(FlightContext);
   return (
     <div>
       <h1>All Flights</h1>
       {flights.map((flight) => (
-        <div key={flight.id}>
+        <div key={flight.number}>
           {flight.editing ? (
             <EditFlight flight={flight} key={flight.id} />
           ) : (
