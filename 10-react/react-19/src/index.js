@@ -15,10 +15,11 @@ function App() {
 
   // Side effect!!!!
   // It runs in every render!!!! modifying the DOM maybe
-  localStorage.setItem("formState", JSON.stringify(state));
+  // localStorage.setItem("formState", JSON.stringify(state));
 
   useEffect(() => {
     console.log("Effect after render");
+    localStorage.setItem("formState", JSON.stringify(state));
   });
 
   console.log("render");

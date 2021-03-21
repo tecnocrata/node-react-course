@@ -7,10 +7,13 @@ let Score = (props) => {
   function increaseScore(e) {
     e.preventDefault();
     console.log("Increase!");
+    props.count++;
   }
   return (
     <div>
-      <p>Score is 0 for the {props.name}</p>
+      <p>
+        Score is {props.count} for the {props.name}
+      </p>
       <button onClick={increaseScore}>+</button>
       <button>-</button>
       <button>Reset</button>
@@ -53,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Score name="Wolverines" />
+        <Score name="Wolverines" count={0} />
       </div>
     );
   }

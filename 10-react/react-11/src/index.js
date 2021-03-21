@@ -3,36 +3,20 @@ import { render } from "react-dom";
 import PropTypes from "prop-types";
 import "./style.css";
 
-// class Score extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.props = props;
-//   }
-//   increaseScore() {
-//     console.log("Increase!");
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <p>Score is 0 for the {this.props.name}</p>
-//         <button onClick={this.increaseScore}>+</button>
-//         <button>-</button>
-//         <button>Reset</button>
-//       </div>
-//     );
-//   }
-// }
-
 let Score = (props) => {
   let [score, setScore] = useState(props.score);
+  // let r= useState(props.score);
+  // let score =r[0];
+  // let setScore = r[1];
+
   function increaseScore(e) {
     e.preventDefault();
     //score++;
-    setScore(score + 1);
-    console.log("Increase score!. ", score);
-    // let newState = score + 1;
-    // setScore(newState);
-    // console.log("Increase score!. ", newState);
+    // setScore(score + 1);
+    // console.log("Increase score!. ", score);
+    let newState = score + 1;
+    setScore(newState);
+    console.log("Increase score!. ", newState);
   }
   return (
     <div>

@@ -41,8 +41,8 @@ function Home() {
 }
 
 function About() {
-  var params = new URLSearchParams(useLocation().search); //hook
-  var name = params.get("myname");
+  let params = new URLSearchParams(useLocation().search); //hook
+  const name = params.get("myname");
   return <p>About Page content for {name}</p>;
 }
 

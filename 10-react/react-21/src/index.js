@@ -26,6 +26,7 @@ function App() {
         ...state,
         ...savedState,
       });
+      //nameField.current.focus();
     }
 
     localStorage.setItem("formState", JSON.stringify(state));
