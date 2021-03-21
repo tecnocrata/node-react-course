@@ -35,12 +35,13 @@ function App() {
     // }
 
     // NOTE: be VERY careful updating state in an effect, because this can easily cause an infinite loop...
-    // setState({
-    //   ...savedState
-    //   // test: "prop"
-    // });
 
     localStorage.setItem("formState", JSON.stringify(state));
+
+    setState({
+      ...savedState,
+      // test: "prop"
+    });
 
     // console.log("counter", counter);
     counter.current++;

@@ -24,58 +24,65 @@ let TemperatureInput = (props) => {
   );
 };
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      celcius: 0,
-      fahrenheit: 0,
-    };
-  }
+let App = () => {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     celcius: 0,
+  //     fahrenheit: 0,
+  //   };
+  // }
 
   // const [celcius, setCelcius] = useState(0);
   // [fahrenheit, setFahrenheit] = useState(0);
 
-  convertFtoC(fahrenheit) {
+  let [temps, setTemps] = useState({
+    celcius: 0,
+    fahrenheit: 0,
+  });
+
+  function convertFtoC(fahrenheit) {
     return ((fahrenheit - 32) * 5) / 9;
   }
 
-  convertCtoF(celcius) {
+  let convertCtoF = (celcius) => {
     return (celcius * 9) / 5 + 32;
-  }
-
-  handleCelcius = (e) => {
-    //setCelcius(e.target.value);
-    //setFahrenheit(convertCtoF(e.target.value));
-    this.setState({ celcius: e.target.value });
-    this.setState({ fahrenheit: this.convertCtoF(e.target.value) });
   };
 
-  handleFahrenheit = (e) => {
-    // setFahrenheit(e.target.value);
-    // setCelcius(convertFtoC(e.target.value));
-    this.setState({
-      fahrenheit: e.target.value,
-      celcius: this.convertFtoC(e.target.value),
+  let handleCelcius = (e) => {
+    //setCelcius(e.target.value);
+    //setFahrenheit(convertCtoF(e.target.value));
+    // this.setState({ celcius: e.target.value });
+    // this.setState({ fahrenheit: convertCtoF(e.target.value) });
+    setTemps({
+      fahrenheit: convertCtoF(e.target.value),
+      celcius: e.target.value,
     });
   };
 
-  render() {
-    return (
-      <>
-        <TemperatureInput
-          unit="c"
-          temp={this.state.celcius}
-          onChange={this.handleCelcius}
-        />
-        <TemperatureInput
-          unit="f"
-          temp={this.state.fahrenheit}
-          onChange={this.handleFahrenheit}
-        />
-      </>
-    );
-  }
-}
+  let handleFahrenheit = (e) => {
+    // setFahrenheit(e.target.value);
+    // setCelcius(convertFtoC(e.target.value));
+    setTemps({
+      fahrenheit: e.target.value,
+      celcius: convertFtoC(e.target.value),
+    });
+  };
+
+  return (
+    <>
+      <TemperatureInput
+        unit="c"
+        temp={temps.celcius}
+        onChange={handleCelcius}
+      />
+      <TemperatureInput
+        unit="f"
+        temp={temps.fahrenheit}
+        onChange={handleFahrenheit}
+      />
+    </>
+  );
+};
 
 render(<App />, document.getElementById("root"));

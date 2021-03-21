@@ -3,26 +3,6 @@ import { render } from "react-dom";
 import PropTypes from "prop-types";
 import "./style.css";
 
-// class Score extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.props = props;
-//   }
-//   increaseScore() {
-//     console.log("Increase!");
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <p>Score is 0 for the {this.props.name}</p>
-//         <button onClick={this.increaseScore}>+</button>
-//         <button>-</button>
-//         <button>Reset</button>
-//       </div>
-//     );
-//   }
-// }
-
 let Score = (props) => {
   let score = props.score;
   function increaseScore(e) {
@@ -58,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Score name="Wolverines" score={0} />
+        <Score name="Wolverines" score={10} />
       </div>
     );
   }

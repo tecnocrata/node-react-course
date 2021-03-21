@@ -33,7 +33,7 @@ function App() {
           setState((prevState) => {
             return { ...prevState, name: savedName, hasLoaded: true };
           });
-        }, 1000);
+        }, 2000);
       });
   }
 

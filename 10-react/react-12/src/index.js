@@ -21,6 +21,7 @@ let TemperatureInput = (props) => {
 
   function handleTempChange(e) {
     setTemp(e.target.value);
+    console.log("Key pressed");
   }
 
   return (
