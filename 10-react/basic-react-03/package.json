@@ -12,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-web-component": "^2.0.2",
+    "react-web-component-style-loader": "^0.1.4-alpha",
+    "single-spa-html": "^1.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -22,6 +25,6 @@
     "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.50.0",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.0.0-beta.0"
   }
 }
