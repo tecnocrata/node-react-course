@@ -1,28 +1,25 @@
-# General Instructions
+# Introductory Course on Node.js and React
 
-## Starting Course
+Welcome to our **introductory course** on *Node.js* and *React*! This course is designed to provide a comprehensive overview of both technologies, from the basics to the skills necessary to become a full-stack developer.
 
-Download setup script from: 
+## Course Content
 
-https://gist.github.com/tecnocrata/cad1918ac5f8fb9ab622fd87096a837a
+In this course, you will start by learning the fundamentals of *Node.js*, including:
 
-## Task and Exercises Presentation
+- Setting up your environment
+- Creating basic server applications
+- Working with modules and packages
+- Advanced topics such as working with APIs, asynchronous programming, and the event loop.
 
-### Filenames format
+Once you've mastered *Node.js*, we'll move on to *React*. You'll learn how to:
 
-LastName.FirstName-d.DayNumber-t.Task-or-ExcerciseNumber.File-Extension-If-Required
+- Create and manage components
+- Work with state and props
+- Use JSX to render your components
+- Advanced topics such as routing, Redux, and working with APIs.
 
-Sample File Names:
+Throughout the course, we will also focus on best practices for building scalable and maintainable applications. We'll explore topics such as testing, debugging, and performance optimization. We will also touch on deployment and hosting, so you can take your applications live and share them with the world.
 
-```
+## Course Goals
 
-ortuno.enrique-d.1-t.1.sh
-ortuno.enrique-d.1-e.1.jpg
-ortuno.enrique-d.1-t.2.gif
-
-```
-
-### Upload cloud folder
-https://www.dropbox.com/request/HIaaMDl1HsZHYqKrEAj5
-
-
+By the end of this course, you'll have a solid understanding of both *Node.js* and *React*, and the skills necessary to build full-stack applications. Whether you're a beginner or have some experience with web development, this course will provide you
